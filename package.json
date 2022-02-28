@@ -1,0 +1,22 @@
+{
+  "name": "magic_world",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YuliaYassnyska/magic_world.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YuliaYassnyska/magic_world/issues"
+  },
+  "homepage": "https://github.com/YuliaYassnyska/magic_world#readme",
+  "dependencies": {
+    "three": "^0.138.0"
+  }
+}
