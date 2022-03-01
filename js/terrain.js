@@ -5,7 +5,7 @@ let geometry = new THREE.PlaneGeometry(100, 100, 12, 12);
 let material = new THREE.MeshBasicMaterial({color: 0x00ff00, wireframe: true});
 let terrain = new THREE.Mesh(geometry, material);
 terrain.rotation.x = Math.PI / 2;
-terrain.position.y = -20;
+terrain.position.y = 0;
 
 
 export const getTerrain = () => {
