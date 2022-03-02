@@ -34,8 +34,8 @@ document.onkeyup = (event) =>{
 }
 
 export const playerMoves = (player, camera) => {
-    camera.position.x += (PressRight - PressLeft) * 0.5;
-    camera.position.z += (PressBack - PressForward) * 0.5;
-    player.position.x = camera.position.x;
-    player.position.z = camera.position.z - 70;
+  player.position.x += (PressRight - PressLeft) * 0.5;
+  player.position.z += (PressBack - PressForward) * 0.5;
+  camera.position.x = player.position.x;
+  camera.position.z = player.position.z + 70;
 }
