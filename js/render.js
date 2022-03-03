@@ -2,7 +2,9 @@ import * as THREE from "../node_modules/three/build/three.module.js";
 import { getPlayer } from "./player.js";
 import { playerMoves } from "./playerMoves.js";
 import { getTerrain } from "./terrain.js";
-import { getTree } from "./tree.js";
+import { Tree } from "./tree.js";
+import { collision } from "./collision.js"
+import { defineObjectForCollision } from "./defineObjectForCollision.js"
 
 
 let width = window.innerWidth;
@@ -31,10 +33,23 @@ spotLight2.position.set(-200, 200, 100);
 scene.add(spotLight2);
 ///////////////////////////////////////////////////////////
 
-let tree = getTree();
-tree.map((el) => {
+let tree1 = new Tree(-30, 30);
+tree1.getTree().map((el) => {
     scene.add(el);
 });
+
+let tree2 = new Tree(30, -20);
+tree2.getTree().map((el) => {
+    scene.add(el);
+});
+
+let tree3 = new Tree(10, -10);
+tree3.getTree().map((el) => {
+    scene.add(el);
+});
+
+let arrayTrees = [];
+arrayTrees.push(tree1.getTree()[0], tree2.getTree()[0], tree3.getTree()[0]);
 
 ///////////////////////////////////////////////////////////
 let renderer = new THREE.WebGLRenderer();
@@ -45,5 +60,6 @@ export function render()
 {
     requestAnimationFrame(render);
     playerMoves(player, camera);
+    defineObjectForCollision(player, arrayTrees, collision)
     renderer.render(scene, camera);
 }
