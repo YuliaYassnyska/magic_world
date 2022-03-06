@@ -1,21 +1,22 @@
-
 export function defineObjectForCollision(object, arrayObjects, collision)
 {
-    let collisionObject = arrayObjects[0];
-    let distance = getDistance(object, arrayObjects[0]);
-    let currentDistance;
-    console.log(distance);
-    for (let i = 1; i < arrayObjects.length; ++i)
+    if(arrayObjects.length != 0)
     {
-        currentDistance = getDistance(object, arrayObjects[i]);
-        if (currentDistance < distance)
+        let collisionObject = arrayObjects[0];
+        let distance = getDistance(object, arrayObjects[0]);
+        let currentDistance;
+        for (let i = 1; i < arrayObjects.length; ++i)
         {
-            distance = currentDistance;
-            collisionObject = arrayObjects[i]
+            currentDistance = getDistance(object, arrayObjects[i]);
+            if (currentDistance < distance)
+            {
+                distance = currentDistance;
+                collisionObject = arrayObjects[i]
+            }
         }
+        
+        collision(object, collisionObject);
     }
-    
-    collision(object, collisionObject);
 }
 
 function getDistance(object1, object2)

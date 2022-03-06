@@ -19,7 +19,8 @@ export class Tree
                 specular: 0x111111
             })
         );
-
+        
+        this.stem.name = "collisionObject"
         this.stem.position.set(posX, this.stem.geometry.parameters.height / 2, posZ);
         this.leaf.position.set(posX, this.stem.geometry.parameters.height + this.leaf.geometry.parameters.radius, posZ);
 
