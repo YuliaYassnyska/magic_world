@@ -6,6 +6,8 @@ import { Tree } from "./tree.js";
 import { collision } from "./collision.js"
 import { defineObjectForCollision } from "./defineObjectForCollision.js"
 import { getCollisionObjects, setCollisionObjects } from "./getCollisionObject.js"
+import { loader } from './fbxLoader.js'
+import { calcCollision } from './calcCollision.js'
 
 
 let width = window.innerWidth;
@@ -19,7 +21,6 @@ camera.lookAt (new THREE.Vector3(0,-2.14,0));
 ////////////////////////////////////////////////////////// Create scene
 
 export let scene = new THREE.Scene();
-
 let player = getPlayer();
 player.position.y += 5;
 scene.add(player);
@@ -46,13 +47,16 @@ new Tree(10, -10).getTree().map((el) => {
     scene.add(el);
 });
 
+loader.then(obj => {
+    scene.add(obj)
+    calcCollision(obj, scene)
+    setCollisionObjects(scene);
+})
 ///////////////////////////////////////////////////////////
 let renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 ////////////////////////////////////////////////////////////
-
-setCollisionObjects(scene);
 
 export function render()
 {
