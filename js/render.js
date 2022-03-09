@@ -47,11 +47,8 @@ new Tree(10, -10).getTree().map((el) => {
     scene.add(el);
 });
 
-loader.then(obj => {
-    scene.add(obj)
-    calcCollision(obj, scene)
-    setCollisionObjects(scene);
-})
+
+loader(scene)
 ///////////////////////////////////////////////////////////
 let renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);

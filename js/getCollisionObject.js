@@ -10,6 +10,5 @@ export function setCollisionObjects(scene)
 
 export function getCollisionObjects()
 {
-    console.log(collisionObjects)
     return collisionObjects;
 }

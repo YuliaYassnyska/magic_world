@@ -1,5 +1,6 @@
-export function collision(player, object)
-{
+export function collision(player, object) {
+    console.log(player.position.z)
+    console.log(object.position.z + object.geometry.parameters.width / 2)
     if ((player.position.x + player.geometry.parameters.width / 2)  >= (object.position.x - object.geometry.parameters.width / 2) &&
         player.position.z  <= (object.position.z + object.geometry.parameters.depth / 2) &&
         player.position.z  >= (object.position.z - object.geometry.parameters.depth / 2))
